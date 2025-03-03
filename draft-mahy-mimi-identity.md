@@ -95,7 +95,7 @@ It also describes naming schemes for different types of IM identifiers.
 # Introduction
 
 The IETF began standardization work on interoperable Instant Messaging in the late 1990s, but since that period, the typical feature set of these systems has expanded widely and was largely driven by the industry without much standardization or interoperability.
-The More Instant Messaging Interop (MIMI) Working Group (see {{!I-D.ietf-mimi-arch}}) was chartered to develop protocols for IM interoperability using end-to-end encryption with the MLS protocol {{!RFC9420}} and architecture ({{?I-D.ietf-ml-architecture}}).
+The More Instant Messaging Interop (MIMI) Working Group (see {{!I-D.ietf-mimi-arch}}) was chartered to develop protocols for IM interoperability using end-to-end encryption with the MLS protocol {{!RFC9420}} and architecture ({{?I-D.ietf-mls-architecture}}).
 
 The largest and most widely deployed Instant Messaging (IM) systems support
 end-to-end message encryption using a variant of the Double
@@ -120,7 +120,7 @@ Finally the document surveys various
 cryptographic methods of making and verifying assertions about these
 identifiers.
 
-Arguably, as with email, the success of XMPP [@?RFC6120] was partially due to
+Arguably, as with email, the success of XMPP {{?RFC6120}} was partially due to
 the ease of communicating among XMPP users in different domains with
 different XMPP servers, and a single
 standardized address format for all XMPP users.
@@ -452,7 +452,7 @@ contains a Distinguished Name, whose Common Name (CN) field can contain free for
 The subjectAltName can contain multiple other identifiers for the Subject
 with types such as a URI, email address, DNS domain names, or
 Distinguished Name. The rules about which combinations of extensions are valid
-are defined in the Internet certificate profile described in [@!RFC5280]. As noted
+are defined in the Internet certificate profile described in {{!RFC5280}}. As noted
 in a previous section of this document, URIs are a natural container for holding
 instant messaging identifiers. Implementations need to be careful to insure that the
 correct semantics are applied to a URI, as they may be referring to different
@@ -461,13 +461,15 @@ issuerAltName field as well.
 
 Certificates are already supported in MLS as a standard credential type which can
 be included in MLS LeafNodes and KeyPackages.
-[In the X3DH key agreement protocol (used with Double Ratchet), the first message
+
+>In the X3DH key agreement protocol (used with Double Ratchet), the first message
 in a session between a pair of clients can contain an optional
-certificate, but this is not standardized.]
+certificate, but this is not standardized.
+
 Arguably the biggest drawback to using X.509 certificates is that administratively
 it can be difficult to obtain certificates for entities that can also generate
 certificates---specifically to issue a certificate with the standard extension
-`basicContraints=CA:TRUE`.]
+`basicContraints=CA:TRUE`.
 
 ~~~
 Certificate:
@@ -530,8 +532,8 @@ Subject.
 
 ## JSON Web Tokens (JWT) and CBOR Web Tokens (CWT)
 
-JSON Web Signing (JWS) [@?RFC7515] and JSON Web Tokens (JWT) [@!RFC7519] are toolkits for
-making a variety of cryptographic claims. (CBOR Web Tokens [@?RFC8392] are semantically
+JSON Web Signing (JWS) {{?RFC7515}} and JSON Web Tokens (JWT) {{!RFC7519}} are toolkits for
+making a variety of cryptographic claims. (CBOR Web Tokens {{?RFC8392}} are semantically
 equivalent to JSON Web Tokens.)
 Both token types are an appealing option for carrying IM identifiers and assertions, as the
 container type is flexible and the format is easy to implement. Unfortunately the
@@ -579,7 +581,7 @@ Finally, there are selective disclosure variants of JWTs {{!I-D.ietf-oauth-selec
 ## Verifiable Credentials
 
 Verifiable Credentials (VC) is a framework for exchanging machine-readable
-credentials [@!W3C.REC-vc-data-model-20191119]. The framework is well
+credentials {{!W3C.REC-vc-data-model-20191119}}. The framework is well
 specified and has a very flexbile assertion structure, which
 in addition to or in place of basic names and identifiers, can
 optionally include arbitrary attributes (ex: security clearance, age, nationality)
@@ -594,7 +596,7 @@ A Verifiable Credential contains assertions made by an issuer. Holders assemble
 credentials into a Verifiable Presentation. Verifiers can validate the Verifiable
 Credentials in the Verifiable Presentation. Specific credential types are defined by
 referencing ontologies. The example at the end of this section uses the
-VCard ontology [@!W3C.WD-vcard-rdf-20130924].
+VCard ontology {{!W3C.WD-vcard-rdf-20130924}}.
 
 Most of the examples for Verifiable Credentials and many of the implementations by commercial identity
 providers use Decentralized Identifiers (DIDs), but there is no requirement to use DID or the associated esoteric cryptography
