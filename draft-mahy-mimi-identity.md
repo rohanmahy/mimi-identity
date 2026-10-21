@@ -420,7 +420,7 @@ compromised simultaneously is very low.
 
 The advantage of this approach is that it does not rely on anyone but the user
 herself. This disadvantage is that if an attacker is able to delete or forge cross
-signatures on a substantial number of the services, the forged assertions would looks as
+signatures on a substantial number of the services, the forged assertions would look as
 legitimate as the authentic assertions (or more convincing).
 
 ## Combining approaches
@@ -454,7 +454,7 @@ with types such as a URI, email address, DNS domain names, or
 Distinguished Name. The rules about which combinations of extensions are valid
 are defined in the Internet certificate profile described in {{!RFC5280}}. As noted
 in a previous section of this document, URIs are a natural container for holding
-instant messaging identifiers. Implementations need to be careful to insure that the
+instant messaging identifiers. Implementations need to be careful to ensure that the
 correct semantics are applied to a URI, as they may be referring to different
 objects (ex: a handle versus a client identifier). There is a corresponding
 issuerAltName field as well.
@@ -469,7 +469,7 @@ certificate, but this is not standardized.
 Arguably the biggest drawback to using X.509 certificates is that administratively
 it can be difficult to obtain certificates for entities that can also generate
 certificates---specifically to issue a certificate with the standard extension
-`basicContraints=CA:TRUE`.
+`basicConstraints=CA:TRUE`.
 
 ~~~
 Certificate:
@@ -519,7 +519,7 @@ Certificate:
 ~~~
 Figure: mocked up IM client certificate with both client id and handle
 
-If implementing cascading certificates, the Issuer might be a expressed as a URI in the
+If implementing cascading certificates, the Issuer might be expressed as a URI in the
 issuerAltName extension.
 
 ~~~
@@ -544,7 +544,7 @@ additional specification work.
 The JWT Demonstrating Proof of Possession (DPoP) specification {{!RFC9449}}
 adds the ability
 to make claims which involve proof of possession of a (typically private) key, and
-to share those claims with third parties. The owner of a the key generates a `proof`
+to share those claims with third parties. The owner of the key generates a `proof`
 which is used to fetch an `access token` which can then be verified by a third party.
 JWT DPoP was actually created as an improvement over Bearer tokens used for
 authentication, so its use as a certificate-like assertion may require substantial
@@ -582,7 +582,7 @@ Finally, there are selective disclosure variants of JWTs {{!I-D.ietf-oauth-selec
 
 Verifiable Credentials (VC) is a framework for exchanging machine-readable
 credentials {{!W3C.REC-vc-data-model-20191119}}. The framework is well
-specified and has a very flexbile assertion structure, which
+specified and has a very flexible assertion structure, which
 in addition to or in place of basic names and identifiers, can
 optionally include arbitrary attributes (ex: security clearance, age, nationality)
 up to and including selective disclosure depending on the profile being used.
